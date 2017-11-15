@@ -1,3 +1,5 @@
-body {
-   background-color: purple
+.container {  
+  display: grid;
+  grid-template-columns: 2.5fr 4fr 2.5fr;
+  grid-template-rows: 1 fr 3fr 2fr;
 }
