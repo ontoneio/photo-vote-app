@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:start": "nodemon app.js"
+    "dev:start": "nodemon app.js",
+    "db": "dropdb photos; createdb photos; psql photos < schema.sql; psql photos < seed-data.sql"
   },
   "repository": {
     "type": "git",
