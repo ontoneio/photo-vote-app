@@ -1,0 +1,70 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Marketplace
+Explore
+ @ontoneio
+ Sign out
+ Watch 1
+  Star 0  Fork 4 flyrightsister/ajax_scaffold
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights
+Branch: master Find file Copy pathajax_scaffold/.eslintrc
+14bdcd3  19 days ago
+@flyrightsister flyrightsister Update code so pet name insert tests pass.
+1 contributor
+RawBlameHistory     
+41 lines (40 sloc)  1019 Bytes
+// Use this file as a starting point for your project's .eslintrc.
+// Copy this file, and add rule overrides as needed.
+{
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "mocha": true,
+  },
+  "globals": {
+      "it": true,
+      "describe": true,
+  },
+  "rules": {
+    "no-console": 0,
+    "semi": 0,
+    "import/no-extraneous-dependencies": [2, { "devDependencies": true }],
+    "comma-dangle": ["error", {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "always-multiline",
+        "exports": "always-multiline",
+        "functions": "never"
+    }],
+    "valid-jsdoc": ["error", {
+      "requireReturn": true,
+      "requireReturnType": true,
+      "requireParamDescription": true,
+      "requireReturnDescription": true
+    }],
+    "require-jsdoc": ["error", {
+        "require": {
+            "FunctionDeclaration": true,
+            "MethodDefinition": true,
+            "ClassDeclaration": true
+        }
+    }],
+  }
+}
+© 2017 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+API
+Training
+Shop
+Blog
+About
