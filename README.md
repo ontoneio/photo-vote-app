@@ -3,7 +3,10 @@
 
 - 1. `npm install` To install all app dependencies
 - 2. `npm run dev:start` To start development server.
-- 3. ``
+- 3. `createdb photos` To create the database for photos
+- 4. `psql photos < schema.sql` To create the schema file
+- 5. `psql photos < seed-data.sql` To seed in the data
+- 6. `dropdb photos` To drop/delete the database
 
 ### Project Notes: 
   1. Client: 
