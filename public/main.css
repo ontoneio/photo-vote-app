@@ -1,15 +1,50 @@
+/* GRID */
 .container {  
   display: grid;
-  grid-template-columns: 2.5fr 4fr 2.5fr;
+  grid-template-columns: 1fr 5fr 1fr;
   grid-template-rows: 1 fr 3fr 2fr;
   grid-template-areas: 
   "login title . "
   ". photo ."
-  "likes count dislike"
+  ". vote ."
 }
 .login {
   grid-area: login;
 }
-.title {
-  
+.app-name {
+  grid-area: title;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.view-blk {
+  grid-area: photo;
+  justify-self: center;
+  margin-bottom: 20px;
+}
+.vote-blk{
+  grid-area: vote;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.count-blk {
+  font-size: 50px;
+  text-align: right;
+}
+
+/* ICON/IMG Styling */
+
+.vote-btn {
+  width: 150px;
+  justify-self: center;
+  /* height: 150px; */
+}
+.up {
+  transform: rotate(-180deg);
+}
+.judge-mills {
+  width: 225px;
+  justify-self: center
 }
