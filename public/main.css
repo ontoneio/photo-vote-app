@@ -1,10 +1,9 @@
-<<<<<<< HEAD
 .container {  
   display: grid;
   grid-template-columns: 2.5fr 4fr 2.5fr;
   grid-template-rows: 1 fr 3fr 2fr;
-=======
-body {
-  background-color: skyblue;
->>>>>>> 8ba55a5d3ed72b06e53caa539275c1e86b9f1bce
+  grid-template-areas: 
+  "login title . "
+  ". photo ."
+  "likes count dislike"
 }
