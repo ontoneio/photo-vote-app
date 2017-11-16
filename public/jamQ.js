@@ -2,7 +2,7 @@ const domElement = function (selector) {
   // The selector being targeted
   this.selector = selector || null;
 // The actual DOM element 
-  this.element = null;  
+  this.element = null;
 }
 
 domElement.prototype.eventHandler = {
