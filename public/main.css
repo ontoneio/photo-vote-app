@@ -1,22 +1,4 @@
 /* GRID */
-body {
-  background: linear-gradient(268deg, #d2e17f, #69c0ea);
-  background-size: 400% 400%;
-  
-  -webkit-animation: AnimationName 13s ease infinite;
-  animation: AnimationName 13s ease infinite;
-  
-  @-webkit-keyframes AnimationName {
-      0%{background-position:90% 0%}
-      50%{background-position:11% 100%}
-      100%{background-position:90% 0%}
-  }
-  @keyframes AnimationName { 
-      0%{background-position:90% 0%}
-      50%{background-position:11% 100%}
-      100%{background-position:90% 0%}
-  }
-}
 .container {  
   display: grid;
   grid-template-columns: [start] 1fr 5fr 1fr [end];
@@ -38,24 +20,32 @@ body {
 .view-blk {
   grid-area: photo;
   justify-self: center;
-  /* margin-bottom: 20px; */
 }
 .vote-blk{
   grid-area: vote;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  /* align-items: center; */
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px
 }
 .count-blk {
-  font-size: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  font-size: 80px;
   text-align: right;
 }
 .like {
  grid-area: like;
+ position: relative;
+ left: 120px;
 }
 .dislike {
   grid-area: dislike;
+  position: relative;
+  left: -120px;
 }
 
 /* ICON/IMG Styling */
@@ -63,12 +53,31 @@ body {
 .vote-btn {
   width: 150px;
   justify-self: center;
-  /* height: 150px; */
 }
 .up {
   transform: rotate(-180deg);
 }
+
 .judge-mills {
   width: 225px;
-  justify-self: center
+  justify-self: center;
+  margin: 0px 30px
 }
+body {
+  background: linear-gradient(268deg, #d2e17f, #69c0ea, #ea696e);
+  background-size: 110% 110%;
+  
+  -webkit-animation: AnimationName 13s ease infinite;
+  animation: AnimationName 13s ease infinite;
+  
+  @-webkit-keyframes AnimationName {
+      0%{background-position:90% 0%}
+      50%{background-position:11% 100%}
+      100%{background-position:90% 0%}
+  }
+  @keyframes AnimationName { 
+      0%{background-position:90% 0%}
+      50%{background-position:11% 100%}
+      100%{background-position:90% 0%}
+  }
+  
