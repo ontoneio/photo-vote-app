@@ -12,9 +12,16 @@ app.set('view engine', 'ejs')
 app.use(logger('dev'))
 app.use(express.static("public"));
 // Routes
-app.get(`/`, (req, res) => {
+app.get(`/`, (req, res, next) => {
   res.render('index.ejs')
+  next();
 })
+
+app.get('/:id', (req, res) => {
+  // Receive Fetch Call
+  // Update DB
+  //Send Vote count back
+} )
 
 
 app.listen(3000, () => {
