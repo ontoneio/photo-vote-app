@@ -1,12 +1,12 @@
 /* GRID */
 .container {  
   display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
-  grid-template-rows: 1 fr 3fr 2fr;
+  grid-template-columns: [start] 1fr 5fr 1fr [end];
+  grid-template-rows: 1 fr 3fr [vote] 2fr;
   grid-template-areas: 
   "login title . "
   ". photo ."
-  ". vote ."
+  "like vote dislike"
 }
 .login {
   grid-area: login;
@@ -20,18 +20,24 @@
 .view-blk {
   grid-area: photo;
   justify-self: center;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 .vote-blk{
   grid-area: vote;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
+  /* align-items: center; */
 }
 .count-blk {
   font-size: 50px;
   text-align: right;
+}
+.like {
+ grid-area: like;
+}
+.dislike {
+  grid-area: dislike;
 }
 
 /* ICON/IMG Styling */
