@@ -1,7 +1,7 @@
 const express = require('express');
 const logger = require('morgan');
-const pgp = require('pg-promise');
 const path = require('path');
+const db = require('./db/db-util')
 
 const app = express();
 
@@ -17,10 +17,10 @@ app.get(`/`, (req, res, next) => {
   next();
 })
 
-app.get('/:id', (req, res) => {
+app.post('/vote', (req, res) => {
   // Receive Fetch Call
   // Update DB
-  //Send Vote count back
+  //Send Vote count
 } )
 
 
