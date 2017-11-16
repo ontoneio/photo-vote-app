@@ -1,5 +1,6 @@
-let domElement = function(selector) {
-  this.selector = selector || null; // The selector being targeted
+const domElement = function (selector) {
+  // The selector being targeted
+  this.selector = selector || null;
   this.element = null; // The actual DOM element  
 }
 

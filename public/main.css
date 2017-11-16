@@ -1,4 +1,22 @@
 /* GRID */
+body {
+  background: linear-gradient(268deg, #d2e17f, #69c0ea);
+  background-size: 400% 400%;
+  
+  -webkit-animation: AnimationName 13s ease infinite;
+  animation: AnimationName 13s ease infinite;
+  
+  @-webkit-keyframes AnimationName {
+      0%{background-position:90% 0%}
+      50%{background-position:11% 100%}
+      100%{background-position:90% 0%}
+  }
+  @keyframes AnimationName { 
+      0%{background-position:90% 0%}
+      50%{background-position:11% 100%}
+      100%{background-position:90% 0%}
+  }
+}
 .container {  
   display: grid;
   grid-template-columns: [start] 1fr 5fr 1fr [end];
