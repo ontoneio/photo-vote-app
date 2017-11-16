@@ -7,3 +7,9 @@
   ". photo ."
   "likes count dislike"
 }
+.login {
+  grid-area: login;
+}
+.title {
+  
+}
