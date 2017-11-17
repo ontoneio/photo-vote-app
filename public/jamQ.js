@@ -1,95 +1,94 @@
-const domElement = function (selector) {
+const domElement = (selector) => {
   // The selector being targeted
   this.selector = selector || null;
-// The actual DOM element 
+  // The actual DOM element
   this.element = null;
 }
 
 domElement.prototype.eventHandler = {
   events: [], // Array of events & callbacks the element is subscribed to.
 
-bindEvent: function(event, callback, targetElement) {
+  bindEvent(event, callback, targetElement) {
   // Remove any duplicate event
-  this.unbindEvent(event, targetElement);
+    this.unbindEvent(event, targetElement);
 
-  // Bind event listener to DOM element
-  targetElement.addEventListener(event, callback, false);
+    // Bind event listener to DOM element
+    targetElement.addEventListener(event, callback, false);
 
-  this.events.push({
-    type: event,
-    event: callback,
-    target: targetElement
-  }); // Push the new event into our events array.
-},
- 
-  findEvent: function(event) {
-    return this.events.filter(function(event) {
-      return (event.type === event); // If event type is a match return
-    }, event) [0];
+    this.events.push({
+      type: event,
+      event: callback,
+      target: targetElement,
+    }); // Push the new event into our events array.
   },
 
-  unbindEvent: function(event, targetElement) {
+  findEvent(event) {
+    return this.events.filter(event =>
+      (event.type === event) // If event type is a match return
+      , event)[0];
+  },
+
+  unbindEvent(event, targetElement) {
     // Search events
     const foundEvent = this.findEvent(event);
 
-    //remove event listener if found
-    if(foundEvent !== undefined) {
+    // remove event listener if found
+    if (foundEvent !== undefined) {
       targetElement.removeEventListener(event, foundEvent.event, false);
     }
-    
+
     // Update the events array
-    this.events = this.events.filter(function(evt) {
-      return (evt.type !== event);      
-    }, event)
-  }
+    this.events = this.events.filter(evt => (evt.type !== event), event)
+  },
 };
 
-domElement.prototype.on = function(event, callback) {
+domElement.prototype.on = (event, callback) => {
   this.eventHandler.bindEvent(event, callback, this.element);
 }
-domElement.prototype.off = function (event, callback) {
-  this.eventHandler.unbindEvent(event, this.element);  
+
+domElement.prototype.off = (event) => {
+  this.eventHandler.unbindEvent(event, this.element);
 }
 
-domElement.prototype.val = function (newVal) {
+domElement.prototype.val = (newVal) => {
   return (newVal !== undefined ? this.element.value = newVal :
-  this.element.value);  
+    this.element.value);
 }
 
-domElement.prototype.append = function(html) {
+domElement.prototype.append = (html) => {
   this.element.innerHTML = this.element.innerHTML + html;
 }
 
-domElement.prototype.prepend = function(html) {
+domElement.prototype.prepend = (html) => {
   this.element.innerHTML = html + this.element.innerHTML;
 }
 
-domElement.prototype.html = function(html) {
-  if(html === undefined) {
+domElement.prototype.html = (html) => {
+  if (html === undefined) {
     return this.element.innerHTML;
   }
-  this.element.innerHTML = html;
+  return this.element.innerHTML = html;
 };
 
-domElement.prototype.init = function() {
-  switch(this.selector[0]) {
-      case '<':
-      //create element
-      let matches = this.selector.match(/<([\w-]*)>/)
-      if (matches === null || matches === undefined){
+domElement.prototype.init = () => {
+  switch (this.selector[0]) {
+    case '<':
+      // create element
+      const matches = this.selector.match(/<([\w-]*)>/)
+      if (matches === null || matches === undefined) {
         throw 'Invalid Selector / Node';
         return false;
       }
-      let nodeName = matches[0].replace('<', '').replace('>', '');
+      const nodeName = matches[0].replace('<', '').replace('>', '');
       this.element = document.createElement(nodeName);
       break;
 
-      default: this.element = document.querySelector(this.selector)
+    default: this.element = document.querySelector(this.selector)
   }
 };
 
-$ = function(selector) {
-  let element = new domElement(selector); // new domElement
+$ = (selector) => {
+  const element = new domElement(selector); // new domElement
   element.init(); // initialize the domElement
   return element; // return domElement
 }
