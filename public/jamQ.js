@@ -1,11 +1,11 @@
-const domElement = (selector) => {
+const jamQ = (selector) => {
   // The selector being targeted
   this.selector = selector || null;
   // The actual DOM element
   this.element = null;
 }
 
-domElement.prototype.eventHandler = {
+jamQ.prototype.eventHandler = {
   events: [], // Array of events & callbacks the element is subscribed to.
 
   bindEvent(event, callback, targetElement) {
@@ -42,35 +42,35 @@ domElement.prototype.eventHandler = {
   },
 };
 
-domElement.prototype.on = (event, callback) => {
+jamQ.prototype.on = (event, callback) => {
   this.eventHandler.bindEvent(event, callback, this.element);
 }
 
-domElement.prototype.off = (event) => {
+jamQ.prototype.off = (event) => {
   this.eventHandler.unbindEvent(event, this.element);
 }
 
-domElement.prototype.val = (newVal) => {
+jamQ.prototype.val = (newVal) => {
   return (newVal !== undefined ? this.element.value = newVal :
     this.element.value);
 }
 
-domElement.prototype.append = (html) => {
+jamQ.prototype.append = (html) => {
   this.element.innerHTML = this.element.innerHTML + html;
 }
 
-domElement.prototype.prepend = (html) => {
+jamQ.prototype.prepend = (html) => {
   this.element.innerHTML = html + this.element.innerHTML;
 }
 
-domElement.prototype.html = (html) => {
+jamQ.prototype.html = (html) => {
   if (html === undefined) {
     return this.element.innerHTML;
   }
   return this.element.innerHTML = html;
 };
 
-domElement.prototype.init = () => {
+jamQ.prototype.init = () => {
   switch (this.selector[0]) {
     case '<':
       // create element
@@ -88,7 +88,7 @@ domElement.prototype.init = () => {
 };
 
 $ = (selector) => {
-  const element = new domElement(selector); // new domElement
-  element.init(); // initialize the domElement
-  return element; // return domElement
+  const element = new jamQ(selector); // new jamQ
+  element.init(); // initialize the jamQ
+  return element; // return jamQ
 }
