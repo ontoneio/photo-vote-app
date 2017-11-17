@@ -1,7 +1,7 @@
 const pgp = require('pg-promise')()
 
 const connectionString = "postgres://process.env.USER:@localhost:5432/photos"
-const db = pg(connectionString)
+const db = pgp(connectionString)
 
 const addLike = (photo) => {
   return db.none(`UPDATE photo_votes SET dislikes = (SELECT dislikes FROM photo_votes WHERE photo_id = $1) + 1
@@ -16,3 +16,8 @@ const addDislike = (photo) => {
 const getLikes = (photo) => {
   return db.any(`SELECT * FROM photo_votes WHERE photo_id = $1`, photo)
 }
+module.exports = {
+  add: addLike,
+  subtract: addDislike,
+  total: getLikes
+};
