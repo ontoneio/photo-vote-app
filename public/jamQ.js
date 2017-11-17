@@ -7,7 +7,7 @@ const jamQ = (selector) => {
 
 jamQ.prototype.eventHandler = {
   events: [], // Array of events & callbacks the element is subscribed to.
-
+  
   bindEvent(event, callback, targetElement) {
   // Remove any duplicate event
     this.unbindEvent(event, targetElement);
