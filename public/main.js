@@ -2,8 +2,8 @@
 function getNewImage (view) {
     const photoView = document.querySelector("#photo-view");
     const randomPicture = photoView.src =`https://picsum.photos/800/500/?image=${Math.round(Math.random()*49)}`
-    return randomPicture
-
+    // const photoID = randomPicture.match(/\d+$/);
+    console.log(`photoID: ${photoID}\nrandomPic: ${randomPicture}`);
 }
 
 window.onload = (photoView) => {

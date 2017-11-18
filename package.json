@@ -7,9 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:start": "nodemon app.js",
     "create": "createdb photos",
-    "schema": "psql photos < schema.sql",
+    "schema": "psql photos < ./db/schema.sql",
     "dropdb": "dropdb photos",
-    "seed": "psql photos < seed-data.sql"
+    "seed": "psql photos < ./db/seed-data.sql",
+    "db:setup": "npm run dropdb && npm run create && npm run schema && npm run seed"
   },
   "repository": {
     "type": "git",
